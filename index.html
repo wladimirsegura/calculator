@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kufam&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+    <div id="display">0.</div>
+    <div id="keyboard">
+        <div class="key-left">
+            <ul>
+                <li onclick=clearNum()>C</li>
+                <li onclick=addDigit(7)>7</li>
+                <li onclick=addDigit(4)>4</li>
+                <li onclick=addDigit(1)>1</li>
+                <li onclick=addDigit(0)>0</li>
+                <li onclick="calc('/');">/</li>
+                <li onclick=addDigit(8)>8</li>
+                <li onclick=addDigit(5)>5</li>
+                <li onclick=addDigit(2)>2</li>
+                <li>00</li>
+                <li onclick="calc('*');">*</li>
+                <li onclick=addDigit(9)>9</li>
+                <li onclick=addDigit(6)>6</li>
+                <li onclick=addDigit(3)>3</li>
+                <li>.</li>
+                <li onclick="calc('-');">-</li>
+                <li class="big" onclick="calc('+');">+</li>
+                <li class="big" onclick="calc('=');">=</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
