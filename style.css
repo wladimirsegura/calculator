@@ -21,10 +21,16 @@ body {
     grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
 
+a.button, a.button:link {
+    text-decoration: none;
+
+}
+
 .calculator-grid > button {
     text-decoration: none;
     cursor: pointer;
     font-size: 2rem;
+    color: rgba(0, 0, 0, .75);
     border: 1px solid white;
     border-radius: 7px;
     outline: none;
