@@ -1,59 +1,47 @@
+const totalText = document.getElementById('total')
+const displayText = document.getElementById('display')
+let num = ""
 
-var num = 0
-var num2 = 0
-var prevOperator = "+"
-var display = document.getElementById("display")
-
-// enter a Number, multiply to 10 and add new number
-function addDigit (digit) {
-    num= num*10 + digit
-    actual = display.innerHTML
-    console.log(actual)
-    display.innerHTML=actual.substr(0,actual.length-1)
-    show()
-    return num
-}
-
-function show() {
-    console.log(display.innerHTML)
-    if (display.innerHTML==="0"){
-        display.innerHTML=""
-    }
-    display.insertAdjacentText("beforeend", num)
-    console.log(display.innerHTML)
-return
-} 
-
-function clearNum() {
-    num = 0
-    show()
+function addDigit(digit) {
+    num+= digit
+    displayText.innerHTML= num
+    result()
     return
 }
 
-function calc(operator) {
-    switch(prevOperator){
-        case "+":
-            num2 += num;
-            break;
-        case "-":
-            num2 -= num;
-            break;
-        case "*":
-            num2 *= num;
-            break;
-        case "/":
-            num2 /= num;
-            break;
-        case "=":
-            break;
-            
-
-        }
-    num= 0;
-    prevOperator= operator;
-    // display.insertAdjacentText("beforeend",operator )
-    display.innerHTML= num2+operator+" ";
+function operator(operator) {
+    if (isNaN(parseInt(num.slice(-1,)))) return
+    num+= operator
+    displayText.innerHTML= num
     return
-
 }
 
+function allClear() {
+    num = ""
+    displayText.innerHTML= "0"
+    totalText.innerHTML= ""
+    return
+}
+
+function result() {
+    show = num
+    if (isNaN(parseInt(num.slice(-1,)))) show= num.slice(0,-1)
+    totalText.innerHTML= '=' + eval(show)
+    return
+}
+
+function del() {
+    num= num.slice(0,-1)
+    if (num==='') num= '0'
+    displayText.innerHTML= num
+    result()
+    return
+}
+
+function equals() {
+    if (isNaN(parseInt(num.slice(-1,)))) num= num.slice(0,-1)
+    displayText.innerHTML= '=' + eval(num)
+    num= ''
+    totalText.innerHTML= ''
+    return
+}

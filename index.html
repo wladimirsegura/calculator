@@ -3,41 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Calculator </title>
+    <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kufam&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Simple Calculator</h1>
+    <div class="calculator-grid">
+        <div class="output">
+            <div id="display">0</div>
+            <div id="total"></div>
+        </div>
+        <button onclick="allClear()">AC</button>
+        <button onclick="del()">⇦</button>
+        <button onclick="operator('%')">%</button>
+        <button onclick="operator('÷')">÷</button>
+        <button onclick="addDigit('7')">7</button>
+        <button onclick="addDigit('8')">8</button>
+        <button onclick="addDigit('9')">9</button>
+        <button onclick="operator('*')">*</button>
+        <button onclick="addDigit('4')">4</button>
+        <button onclick="addDigit('5')">5</button>
+        <button onclick="addDigit('6')">6</button>
+        <button onclick="operator('-')">-</button>
+        <button onclick="addDigit('1')">1</button>
+        <button onclick="addDigit('2')">2</button>
+        <button onclick="addDigit('3')">3</button>
+        <button onclick="operator('+')"class="span-two">+</button>
+        <button onclick="addDigit('0')">0</button>
+        <button onclick="addDigit('.')">.</button>
+        <button onclick="equals()">=</button>
 
-    <div id="display">0</div>
-
-    <div id="keyboard">
-            <ul>
-                <li onclick=clearNum()>C</li>
-                <li onclick=addDigit(7)>7</li>
-                <li onclick=addDigit(4)>4</li>
-                <li onclick=addDigit(1)>1</li>
-                <li onclick=addDigit(0)>0</li>
-                <li onclick="calc('/');">/</li>
-                <li onclick=addDigit(8)>8</li>
-                <li onclick=addDigit(5)>5</li>
-                <li onclick=addDigit(2)>2</li>
-                <li>00</li>
-                <li onclick="calc('*');">*</li>
-                <li onclick=addDigit(9)>9</li>
-                <li onclick=addDigit(6)>6</li>
-                <li onclick=addDigit(3)>3</li>
-                <li>.</li>
-                <li onclick="calc('-');">-</li>
-                <li class="big" onclick="calc('+');">+</li>
-                <li class="big" onclick="calc('=');">=</li>
-            </ul>
     </div>
 
-    <script src="script.js"></script>
 </body>
 </html>
