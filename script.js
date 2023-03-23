@@ -39,6 +39,7 @@ function del() {
 }
 
 function equals() {
+    if (num==='') return
     if (isNaN(parseInt(num.slice(-1,)))) num= num.slice(0,-1)
     displayText.innerHTML= '=' + eval(num)
     num= ''
