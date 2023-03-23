@@ -7,6 +7,8 @@
 body {
     padding: 0;
     margin: 0;
+    overflow: hidden;
+    position: absolute;
     background: linear-gradient(to right, #0af, #0f6c);
 }
 
@@ -15,12 +17,13 @@ body {
     justify-content: center;
     align-content: top;
     min-height:80vh;
-    margin-top: 10px;
+    margin-top: 16px;
     grid-template-columns: repeat(4, 100px);
     grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
 
 .calculator-grid > button {
+    text-decoration: none;
     cursor: pointer;
     font-size: 2rem;
     border: 1px solid white;
