@@ -51,7 +51,7 @@ function calc(operator) {
         }
     num= 0;
     prevOperator= operator;
-    // display.insertAdjacentText("beforeend",operator)
+    // display.insertAdjacentText("beforeend",operator )
     display.innerHTML= num2+operator+" ";
     return
 

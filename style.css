@@ -21,7 +21,7 @@ body {
     height: fit-content;
     background-color:rgb(54, 60, 226);
     border: 3px solid;
-    /* margin: 1rem; */
+    /* margin: 1rem;  */
     border-radius: 0.9rem;
     justify-content: flex-end;
 }

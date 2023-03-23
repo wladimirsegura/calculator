@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Calculator</title>
+    <title>Simple Calculator </title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,9 +12,10 @@
 </head>
 <body>
     <h1>Simple Calculator</h1>
-    <div id="display">0.</div>
+
+    <div id="display">0</div>
+
     <div id="keyboard">
-        <div class="key-left">
             <ul>
                 <li onclick=clearNum()>C</li>
                 <li onclick=addDigit(7)>7</li>
@@ -35,8 +36,6 @@
                 <li class="big" onclick="calc('+');">+</li>
                 <li class="big" onclick="calc('=');">=</li>
             </ul>
-        </div>
-
     </div>
 
     <script src="script.js"></script>
