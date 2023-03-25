@@ -4,7 +4,6 @@ let num = ""
 
 function addDigit(digit) {
     num+= digit
-    displayText.innerHTML= num
     result()
     return
 }
@@ -26,6 +25,7 @@ function allClear() {
 function result() {
     show = num
     if (isNaN(parseInt(num.slice(-1,)))) show= num.slice(0,-1)
+    displayText.innerHTML= num
     totalText.innerHTML= '=' + eval(show)
     return
 }
@@ -33,7 +33,6 @@ function result() {
 function del() {
     num= num.slice(0,-1)
     if (num==='') num= '0'
-    displayText.innerHTML= num
     result()
     return
 }
@@ -45,4 +44,16 @@ function equals() {
     num= ''
     totalText.innerHTML= ''
     return
+}
+
+function percent(){
+    symbols= num.matchAll(/\D/g)
+    for (symbol of symbols){
+        lastSymbolIndex=symbol.index
+    }
+    lastNumber= num.slice(lastSymbolIndex+1,)
+    perc=parseFloat(lastNumber)/100
+    num= num.replace(lastNumber,perc)
+    result()
+
 }
