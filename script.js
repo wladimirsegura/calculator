@@ -2,11 +2,20 @@ const totalText = document.getElementById('total')
 const displayText = document.getElementById('display')
 let num = ""
 let operatorList=""
+<<<<<<< HEAD
 dotCounter = false
 
 
 function addDigit(digit) {
     if(num==="0" && digit==="0") return
+=======
+
+
+function addDigit(digit) {
+    if(digit==="." && num.slice(-1)===".") return
+    if(num==="0" && digit==="0") return
+    if(num==="0") num=""
+>>>>>>> 6e09883ca13068beaf491590bbf94bbd14a543ab
     num+= digit
     result()
     return
