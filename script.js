@@ -1,8 +1,13 @@
 const totalText = document.getElementById('total')
 const displayText = document.getElementById('display')
 let num = ""
+let operatorList=""
+
 
 function addDigit(digit) {
+    if(digit==="." && num.slice(-1)===".") return
+    if(num==="0" && digit==="0") return
+    if(num==="0") num=""
     num+= digit
     result()
     return
@@ -11,12 +16,17 @@ function addDigit(digit) {
 function operator(operator) {
     if (isNaN(parseInt(num.slice(-1,)))) return
     num+= operator
+    operatorList+=operator
+    if(operator===".") operatorList.pop()
+    console.log(num)
     displayText.innerHTML= num
     return
 }
 
+
 function allClear() {
     num = ""
+    operatorList=""
     displayText.innerHTML= "0"
     totalText.innerHTML= ""
     return
@@ -47,11 +57,9 @@ function equals() {
 }
 
 function percent(){
-    symbols= num.matchAll(/\D/g)
-    for (symbol of symbols){
-        lastSymbolIndex=symbol.index
-    }
-    lastNumber= num.slice(lastSymbolIndex+1,)
+    if (isNaN(parseInt(num.slice(-1,)))) return
+    lastOperatorIndex= num.lastIndexOf(operatorList.slice(-1))
+    lastNumber= num.slice(lastOperatorIndex+1,)
     perc=parseFloat(lastNumber)/100
     num= num.replace(lastNumber,perc)
     result()
