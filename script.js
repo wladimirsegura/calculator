@@ -1,9 +1,23 @@
 const totalText = document.getElementById('total')
 const displayText = document.getElementById('display')
 let num = ""
+let operatorList=""
+dotCounter = false
+
 
 function addDigit(digit) {
+    if(num==="0" && digit==="0") return
     num+= digit
+    result()
+    return
+}
+
+function dot() {
+    
+    if(num==="") num="0"
+    if (num.slice(-1)==="." || dotCounter=== true) return
+    num+= "."
+    dotCounter= true
     result()
     return
 }
@@ -11,22 +25,26 @@ function addDigit(digit) {
 function operator(operator) {
     if (isNaN(parseInt(num.slice(-1,)))) return
     num+= operator
+    operatorList+=operator
+    dotCounter= false
     displayText.innerHTML= num
     return
 }
 
+
 function allClear() {
     num = ""
+    operatorList=""
     displayText.innerHTML= "0"
     totalText.innerHTML= ""
     return
 }
 
 function result() {
-    show = num
-    if (isNaN(parseInt(num.slice(-1,)))) show= num.slice(0,-1)
+    if (isNaN(parseInt(num.slice(-1,)))) num.slice(0,-1)
     displayText.innerHTML= num
-    totalText.innerHTML= '=' + eval(show)
+    if(eval(num)=== undefined) return
+    totalText.innerHTML= '=' + eval(num)
     return
 }
 
@@ -39,6 +57,7 @@ function del() {
 
 function equals() {
     if (num==='') return
+    dotCounter= false
     if (isNaN(parseInt(num.slice(-1,)))) num= num.slice(0,-1)
     displayText.innerHTML= '=' + eval(num)
     num= ''
@@ -47,11 +66,9 @@ function equals() {
 }
 
 function percent(){
-    symbols= num.matchAll(/\D/g)
-    for (symbol of symbols){
-        lastSymbolIndex=symbol.index
-    }
-    lastNumber= num.slice(lastSymbolIndex+1,)
+    if (isNaN(parseInt(num.slice(-1,)))) return
+    lastOperatorIndex= num.lastIndexOf(operatorList.slice(-1))
+    lastNumber= num.slice(lastOperatorIndex+1,)
     perc=parseFloat(lastNumber)/100
     num= num.replace(lastNumber,perc)
     result()
